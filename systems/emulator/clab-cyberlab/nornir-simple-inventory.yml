@@ -1,0 +1,21 @@
+---
+host1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.10.10.101
+host2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.10.10.102
+host3:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.10.10.103
+host4:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.10.10.104

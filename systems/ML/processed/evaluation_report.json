@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-09-01T10:52:16.281481+00:00",
+  "ground_dir": "/home/test/IDS/systems/Red-Team/ground",
+  "processed_dir": "/home/test/IDS/systems/ML/processed",
+  "results": [
+    {
+      "name": "botnet",
+      "tp": 0,
+      "fp": 8,
+      "fn": 5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pred_count": 8,
+      "gt_count": 5,
+      "gt_file": "botnet.csv",
+      "pred_file": "botnet-predictions.csv"
+    },
+    {
+      "name": "c2",
+      "tp": 0,
+      "fp": 5,
+      "fn": 10,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pred_count": 5,
+      "gt_count": 10,
+      "gt_file": "c2.csv",
+      "pred_file": "c2-predictions.csv"
+    },
+    {
+      "name": "lateral",
+      "tp": 0,
+      "fp": 5,
+      "fn": 10,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pred_count": 5,
+      "gt_count": 10,
+      "gt_file": "lateral.csv",
+      "pred_file": "lateral-movement-predictions.csv"
+    },
+    {
+      "name": "portscan",
+      "tp": 0,
+      "fp": 11,
+      "fn": 12,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pred_count": 11,
+      "gt_count": 12,
+      "gt_file": "portscan.csv",
+      "pred_file": "port-scan-predictions.csv"
+    },
+    {
+      "name": "ssh",
+      "tp": 0,
+      "fp": 0,
+      "fn": 11,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "pred_count": 0,
+      "gt_count": 11,
+      "gt_file": "ssh.csv",
+      "pred_file": "ssh-brute-force-predictions.csv"
+    }
+  ]
+}

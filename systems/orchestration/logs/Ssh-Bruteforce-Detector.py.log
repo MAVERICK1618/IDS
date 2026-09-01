@@ -1,0 +1,18 @@
+============================================================
+ SSH BRUTE-FORCE DETECTION
+============================================================
+[+] Loaded 15,461 flows from /home/test/IDS/systems/ML/data/live-traffic.csv
+[+] Adaptive threshold used: 292.0 attempts
+[+] No SSH brute-force activity detected.
+[+] Empty ssh-brute-force-predictions.csv written
+[+] Saved single alert file: /home/test/IDS/systems/ML/alerts/ssh-brute-force-alert.json  (0 alert(s))
+
+============================================================
+ SUMMARY
+============================================================
+  Total flows              : 15,461
+  SSH brute-force alerts   : 0
+  Prediction rows          : 0
+  predictions.csv          : /home/test/IDS/systems/ML/processed/ssh-brute-force-predictions.csv
+  Alert file               : /home/test/IDS/systems/ML/alerts/ssh-brute-force-alert.json
+============================================================

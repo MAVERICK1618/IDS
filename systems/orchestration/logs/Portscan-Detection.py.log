@@ -1,0 +1,43 @@
+[+] Loading data...
+[+] Loaded 15,461 flows
+[+] Engineering features...
+[+] Heuristic labels → Scan: 1,869 | Benign: 13,592
+[+] Training Isolation Forest...
+[+] Anomaly threshold: 0.0865 | Flagged: 526
+[+] Building long-term memory features...
+[+] Balanced train size: 2616 (scan=1308)
+[+] Training RandomForest...
+[+] Model saved → /home/test/IDS/systems/ML/models/port_scan_detector.pkl
+
+======================================================================
+ PORT SCAN ALERTS (High Confidence + Clean Victims)
+======================================================================
+
+[+] Detected 6 high-confidence attacker(s):
+
+ALERT [Port-Scan] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.101]
+ALERT [Port-Scan] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.102]
+ALERT [Port-Scan] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.103]
+ALERT [Port-Scan] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.104]
+ALERT [Port-Scan] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.105]
+ALERT [Port-Scan] attacker_ip: [10.10.10.1] host_compromised: [224.0.0.251]
+ALERT [Port-Scan] attacker_ip: [10.10.10.101] host_compromised: [10.10.10.1]
+ALERT [Port-Scan] attacker_ip: [10.10.10.103] host_compromised: [10.10.10.1]
+ALERT [Port-Scan] attacker_ip: [10.10.10.102] host_compromised: [10.10.10.1]
+ALERT [Port-Scan] attacker_ip: [10.10.10.105] host_compromised: [10.10.10.1]
+ALERT [Port-Scan] attacker_ip: [10.10.10.104] host_compromised: [10.10.10.1]
+
+[+] Saved predictions: /home/test/IDS/systems/ML/processed/port-scan-predictions.csv  (1045 rows)
+[+] Saved single alert file: /home/test/IDS/systems/ML/alerts/port-scan-alert.json  (11 alert(s))
+
+======================================================================
+ SUMMARY
+======================================================================
+  Total flows          : 15,461
+  Predicted scan flows : 2,910
+  Alerts generated     : 11
+  predictions rows     : 1045
+  predictions file     : /home/test/IDS/systems/ML/processed/port-scan-predictions.csv
+  Alert file           : /home/test/IDS/systems/ML/alerts/port-scan-alert.json
+======================================================================
+[+] Pipeline finished.

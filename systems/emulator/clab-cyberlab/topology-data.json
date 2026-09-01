@@ -1,0 +1,194 @@
+{
+  "name": "cyberlab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "cyberlab-mgmt",
+        "bridge": "br-01dde6f4e0fd",
+        "ipv4-subnet": "10.10.10.0/24",
+        "ipv4-gw": "10.10.10.1",
+        "ipv6-gw": "fe80::5031:1fff:fe92:444d",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "host1": {
+      "index": "0",
+      "shortname": "host1",
+      "longname": "clab-cyberlab-host1",
+      "fqdn": "host1.cyberlab.io",
+      "group": "",
+      "labdir": "/home/test/IDS/systems/emulator/clab-cyberlab/host1",
+      "kind": "linux",
+      "image": "vuln-web",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.10.10.101",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-01dde6f4e0fd",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/test/IDS/systems/emulator/clab-cyberlab/host1",
+        "clab-node-longname": "clab-cyberlab-host1",
+        "clab-node-name": "host1",
+        "clab-node-type": "",
+        "clab-owner": "test",
+        "clab-topo-file": "/home/test/IDS/systems/emulator/lab.clab.yml",
+        "containerlab": "cyberlab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "host2": {
+      "index": "1",
+      "shortname": "host2",
+      "longname": "clab-cyberlab-host2",
+      "fqdn": "host2.cyberlab.io",
+      "group": "",
+      "labdir": "/home/test/IDS/systems/emulator/clab-cyberlab/host2",
+      "kind": "linux",
+      "image": "vuln-ssh",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.10.10.102",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-01dde6f4e0fd",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/test/IDS/systems/emulator/clab-cyberlab/host2",
+        "clab-node-longname": "clab-cyberlab-host2",
+        "clab-node-name": "host2",
+        "clab-node-type": "",
+        "clab-owner": "test",
+        "clab-topo-file": "/home/test/IDS/systems/emulator/lab.clab.yml",
+        "containerlab": "cyberlab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "host3": {
+      "index": "2",
+      "shortname": "host3",
+      "longname": "clab-cyberlab-host3",
+      "fqdn": "host3.cyberlab.io",
+      "group": "",
+      "labdir": "/home/test/IDS/systems/emulator/clab-cyberlab/host3",
+      "kind": "linux",
+      "image": "vuln-smbd",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.10.10.103",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-01dde6f4e0fd",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/test/IDS/systems/emulator/clab-cyberlab/host3",
+        "clab-node-longname": "clab-cyberlab-host3",
+        "clab-node-name": "host3",
+        "clab-node-type": "",
+        "clab-owner": "test",
+        "clab-topo-file": "/home/test/IDS/systems/emulator/lab.clab.yml",
+        "containerlab": "cyberlab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 139,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 445,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "host4": {
+      "index": "3",
+      "shortname": "host4",
+      "longname": "clab-cyberlab-host4",
+      "fqdn": "host4.cyberlab.io",
+      "group": "",
+      "labdir": "/home/test/IDS/systems/emulator/clab-cyberlab/host4",
+      "kind": "linux",
+      "image": "vuln-ftp",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.10.10.104",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-01dde6f4e0fd",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/test/IDS/systems/emulator/clab-cyberlab/host4",
+        "clab-node-longname": "clab-cyberlab-host4",
+        "clab-node-name": "host4",
+        "clab-node-type": "",
+        "clab-owner": "test",
+        "clab-topo-file": "/home/test/IDS/systems/emulator/lab.clab.yml",
+        "containerlab": "cyberlab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 21,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  },
+  "links": [
+  ]
+}

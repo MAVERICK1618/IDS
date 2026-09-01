@@ -1,0 +1,229 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    IDS PROJECT - COMMANDS CHEATSHEET
+═══════════════════════════════════════════════════════════════════════════════
+
+PROJECT STRUCTURE:
+  /home/test/IDS/
+  ├── frontend/        → React Dashboard (http://localhost:5173)
+  ├── backend/         → Flask API (http://localhost:8000)
+  └── systems/         → ML Detectors, Traffic Monitor, Orchestration
+
+───────────────────────────────────────────────────────────────────────────────
+QUICK START (Copy & Paste)
+───────────────────────────────────────────────────────────────────────────────
+
+TERMINAL 1 - BACKEND SERVER:
+  cd /home/test/IDS/backend
+  python3 -m venv venv 2>/dev/null || true
+  source venv/bin/activate
+  pip install flask flask-cors python-dotenv >/dev/null 2>&1
+  python3 app.py
+
+TERMINAL 2 - FRONTEND:
+  cd /home/test/IDS/frontend
+  npm install >/dev/null 2>&1
+  npm run dev
+
+TERMINAL 3 - LIVE TRAFFIC MONITOR:
+  cd /home/test/IDS/systems
+  python3 -m venv venv 2>/dev/null || true
+  source venv/bin/activate
+  pip install scapy psutil numpy >/dev/null 2>&1
+  python3 live-traffic-montior.py
+
+TERMINAL 4 - ML DETECTOR (Pick one):
+  cd /home/test/IDS/systems/ML
+  python3 -m venv venv 2>/dev/null || true
+  source venv/bin/activate
+  pip install pandas scikit-learn >/dev/null 2>&1
+  python3 Portscan-Detection.py
+
+───────────────────────────────────────────────────────────────────────────────
+ACCESSING THE SYSTEM
+───────────────────────────────────────────────────────────────────────────────
+
+  Frontend:  http://localhost:5173
+  Backend:   http://localhost:8000
+  API:       http://localhost:8000/api/status
+
+───────────────────────────────────────────────────────────────────────────────
+BACKEND COMMANDS ONLY
+───────────────────────────────────────────────────────────────────────────────
+
+First Time Setup:
+  cd /home/test/IDS/backend
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install flask flask-cors python-dotenv
+
+Run Backend:
+  cd /home/test/IDS/backend
+  source venv/bin/activate
+  python3 app.py
+
+Production Mode:
+  cd /home/test/IDS/backend
+  source venv/bin/activate
+  pip install gunicorn
+  gunicorn -w 4 -b 0.0.0.0:8000 app:app
+
+───────────────────────────────────────────────────────────────────────────────
+FRONTEND COMMANDS ONLY
+───────────────────────────────────────────────────────────────────────────────
+
+First Time Setup:
+  cd /home/test/IDS/frontend
+  npm install
+
+Development:
+  cd /home/test/IDS/frontend
+  npm run dev
+
+Production Build:
+  cd /home/test/IDS/frontend
+  npm run build
+  npm run preview
+
+───────────────────────────────────────────────────────────────────────────────
+SYSTEMS COMMANDS
+───────────────────────────────────────────────────────────────────────────────
+
+Live Traffic Monitor:
+  cd /home/test/IDS/systems
+  source venv/bin/activate
+  python3 live-traffic-montior.py
+
+ML Detectors (run any one):
+  cd /home/test/IDS/systems/ML
+  source venv/bin/activate
+  
+  python3 Portscan-Detection.py
+  python3 Ssh-Bruteforce-Detector.py
+  python3 Bonet-Detection.py
+  python3 C-2-Detection.py
+  python3 Data-Exfilration-Detection.py
+  python3 Lateral-Movenment.py
+
+Alert Dashboard (Standalone):
+  cd /home/test/IDS/systems
+  source venv/bin/activate
+  python3 alert_dashboard.py
+  # Then open http://localhost:5000
+
+───────────────────────────────────────────────────────────────────────────────
+VERIFY SETUP
+───────────────────────────────────────────────────────────────────────────────
+
+Test Backend:
+  curl http://localhost:8000/api/status
+  curl http://localhost:8000/api/alerts
+  curl http://localhost:8000/api/traffic/live
+
+Check Frontend Loads:
+  open http://localhost:5173 (macOS)
+  xdg-open http://localhost:5173 (Linux)
+  start http://localhost:5173 (Windows)
+
+Check Ports in Use:
+  lsof -i :5173   (Frontend)
+  lsof -i :8000   (Backend)
+  lsof -i :5000   (Alert Dashboard)
+
+───────────────────────────────────────────────────────────────────────────────
+KILL RUNNING PROCESSES
+───────────────────────────────────────────────────────────────────────────────
+
+Kill by Port:
+  lsof -i :5173 | grep LISTEN | awk '{print $2}' | xargs kill -9
+  lsof -i :8000 | grep LISTEN | awk '{print $2}' | xargs kill -9
+
+Kill by Name:
+  pkill -f "python3 app.py"
+  pkill -f "npm run dev"
+  pkill -f "live-traffic-montior.py"
+
+───────────────────────────────────────────────────────────────────────────────
+ENVIRONMENT VARIABLES
+───────────────────────────────────────────────────────────────────────────────
+
+Frontend - Development (.env.local):
+  VITE_API_BASE_URL=http://localhost:8000
+
+Frontend - Production (.env.production):
+  VITE_API_BASE_URL=https://api.your-domain.com
+
+Backend - Optional (.env):
+  FLASK_ENV=production
+  ALLOWED_ORIGINS=https://your-domain.com
+
+───────────────────────────────────────────────────────────────────────────────
+DATA FLOW
+───────────────────────────────────────────────────────────────────────────────
+
+Systems → Backend → Frontend
+  
+  /systems/ML/alerts/*.json → /api/alerts → Frontend Attack Panel
+  /systems/ML/data/live-traffic.csv → /api/traffic/live → Frontend Packet Panel
+  /systems/orchestration/agent_messages.log → /api/agent/messages → Frontend Agent Panel
+  /systems/ML/outputs/*.csv → /api/metrics → Frontend Metrics Panel
+
+───────────────────────────────────────────────────────────────────────────────
+TROUBLESHOOTING
+───────────────────────────────────────────────────────────────────────────────
+
+Port Already in Use:
+  lsof -i :PORT
+  kill -9 PID
+
+Module Not Found:
+  # Frontend
+  cd /home/test/IDS/frontend && rm -rf node_modules && npm install
+
+  # Backend
+  cd /home/test/IDS/backend && source venv/bin/activate && pip install flask
+
+API Calls Failing:
+  1. Check backend running: curl http://localhost:8000/api/status
+  2. Check VITE_API_BASE_URL in .env.local
+  3. Check DevTools Console (F12) for errors
+
+No Data in Frontend:
+  1. Check if systems are running (ML/alerts folder should have JSON files)
+  2. Check backend logs for read errors
+  3. Restart backend and frontend
+
+───────────────────────────────────────────────────────────────────────────────
+USEFUL COMMANDS
+───────────────────────────────────────────────────────────────────────────────
+
+View Backend Logs:
+  tail -f /tmp/backend.log
+
+View Frontend Logs:
+  tail -f /tmp/frontend.log
+
+Check System Folders:
+  ls -la /home/test/IDS/systems/ML/alerts/
+  ls -la /home/test/IDS/systems/ML/data/
+  ls -la /home/test/IDS/systems/orchestration/logs/
+
+Monitor API Calls (from browser):
+  1. Open http://localhost:5173
+  2. Press F12 (DevTools)
+  3. Go to Network tab
+  4. Filter by "api"
+  5. Watch requests and responses
+
+───────────────────────────────────────────────────────────────────────────────
+DOCUMENTATION
+───────────────────────────────────────────────────────────────────────────────
+
+README.md                       → Project overview
+DATA_FLOW_ARCHITECTURE.md       → How data flows through the system
+COMPLETE_RUN_GUIDE.md           → Detailed setup guide
+QUICK_COMMANDS.md               → More commands
+COMMANDS_CHEATSHEET.txt         → This file
+systems/docs/                   → Additional documentation
+
+───────────────────────────────────────────────────────────────────────────────
+═══════════════════════════════════════════════════════════════════════════════

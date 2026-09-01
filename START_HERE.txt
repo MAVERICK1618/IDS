@@ -1,0 +1,186 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                     🎯 IDS PROJECT - START HERE 🎯                       ║
+║                                                                           ║
+║                           Data Flow: CONFIGURED ✅                        ║
+║                    Frontend ↔ Backend ↔ Systems: READY                  ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+📋 PROJECT STRUCTURE
+═══════════════════════════════════════════════════════════════════════════
+
+  /home/test/IDS/
+  │
+  ├── 📁 frontend/           → React Dashboard (Port 5173)
+  ├── 📁 backend/            → Flask API (Port 8000)
+  └── 📁 systems/            → ML, Traffic, Red Team, Orchestration
+
+═══════════════════════════════════════════════════════════════════════════
+
+🚀 FASTEST START (4 Terminals - Copy & Paste)
+═══════════════════════════════════════════════════════════════════════════
+
+┌─ TERMINAL 1: BACKEND ────────────────────────────────────────────────────┐
+│                                                                            │
+│  cd /home/test/IDS/backend                                               │
+│  python3 -m venv venv 2>/dev/null || true                               │
+│  source venv/bin/activate                                                │
+│  pip install flask flask-cors python-dotenv                              │
+│  python3 app.py                                                           │
+│                                                                            │
+│  ✓ Backend will run on: http://localhost:8000                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ TERMINAL 2: FRONTEND ───────────────────────────────────────────────────┐
+│                                                                            │
+│  cd /home/test/IDS/frontend                                              │
+│  npm install                                                              │
+│  npm run dev                                                               │
+│                                                                            │
+│  ✓ Frontend will run on: http://localhost:5173                           │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ TERMINAL 3: LIVE TRAFFIC MONITOR ──────────────────────────────────────┐
+│                                                                            │
+│  cd /home/test/IDS/systems                                               │
+│  python3 -m venv venv 2>/dev/null || true                               │
+│  source venv/bin/activate                                                │
+│  pip install scapy psutil numpy                                           │
+│  python3 live-traffic-montior.py                                          │
+│                                                                            │
+│  ✓ Captures packets → ML/data/live-traffic.csv                           │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┌─ TERMINAL 4: ML DETECTOR (Pick One) ─────────────────────────────────────┐
+│                                                                            │
+│  cd /home/test/IDS/systems/ML                                            │
+│  python3 -m venv venv 2>/dev/null || true                               │
+│  source venv/bin/activate                                                │
+│  pip install pandas scikit-learn                                          │
+│  python3 Portscan-Detection.py                                            │
+│                                                                            │
+│  Options: Portscan-Detection.py, Ssh-Bruteforce-Detector.py,             │
+│           Bonet-Detection.py, C-2-Detection.py, ...                      │
+│                                                                            │
+│  ✓ Generates alerts → ML/alerts/*.json                                   │
+└────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+
+✅ ACCESS
+═══════════════════════════════════════════════════════════════════════════
+
+  Frontend Dashboard:    http://localhost:5173
+  Backend API:           http://localhost:8000
+  API Status:            http://localhost:8000/api/status
+
+═══════════════════════════════════════════════════════════════════════════
+
+📊 WHAT YOU'LL SEE
+═══════════════════════════════════════════════════════════════════════════
+
+  Frontend Dashboard (http://localhost:5173):
+  ┌────────────────────────────────────────────┐
+  │  🤖 Agent Feed      │ 📊 Metrics Panel     │
+  │  Live agent msgs    │ System evaluation    │
+  ├────────────────────────────────────────────┤
+  │  📦 Packet Monitor  │ 🚨 Attack Timeline   │
+  │  Live traffic       │ Detected attacks     │
+  └────────────────────────────────────────────┘
+
+  Data comes from:
+  - Agent Feed ← systems/orchestration/agent_messages.log
+  - Packet Monitor ← systems/ML/data/live-traffic.csv
+  - Attack Timeline ← systems/ML/alerts/*.json
+  - Metrics Panel ← systems/ML/outputs/*.csv
+
+═══════════════════════════════════════════════════════════════════════════
+
+🔍 VERIFY IT'S WORKING
+═══════════════════════════════════════════════════════════════════════════
+
+  1. Open http://localhost:5173 in browser
+  2. Press F12 (Open DevTools)
+  3. Go to Network tab
+  4. Look for requests to /api/alerts, /api/traffic/live, etc.
+  5. Should see responses (not 404 errors)
+  6. Console should show no errors
+
+═══════════════════════════════════════════════════════════════════════════
+
+📚 DOCUMENTATION
+═══════════════════════════════════════════════════════════════════════════
+
+  README.md                    → Project overview
+  DATA_FLOW_STATUS.md          → Detailed status report
+  DATA_FLOW_ARCHITECTURE.md    → How data flows through system
+  COMPLETE_RUN_GUIDE.md        → Detailed setup guide
+  COMMANDS_CHEATSHEET.txt      → Quick reference
+
+  Read: DATA_FLOW_ARCHITECTURE.md for complete flow diagram
+
+═══════════════════════════════════════════════════════════════════════════
+
+🆘 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════
+
+  Problem: Backend won't start
+    → Check port 8000: lsof -i :8000
+    → Kill process: kill -9 <PID>
+
+  Problem: Frontend won't start
+    → Check port 5173: lsof -i :5173
+    → Delete node_modules: rm -rf node_modules
+    → Reinstall: npm install
+
+  Problem: No data in dashboard
+    → Check if systems are running
+    → Check folders: ls -la /home/test/IDS/systems/ML/alerts/
+    → Check backend: curl http://localhost:8000/api/status
+
+  Problem: CORS errors in console
+    → Restart backend
+    → Check .env.local has VITE_API_BASE_URL=http://localhost:8000
+
+═══════════════════════════════════════════════════════════════════════════
+
+📊 DATA FLOW (Simple)
+═══════════════════════════════════════════════════════════════════════════
+
+  Systems (Produce Data)
+      ↓ Write files to ML/, orchestration/
+  Backend (Serve API)
+      ↓ Read files, return HTTP JSON
+  Frontend (Display)
+      ↓ Show dashboard with real data
+
+═══════════════════════════════════════════════════════════════════════════
+
+💡 TIPS
+═══════════════════════════════════════════════════════════════════════════
+
+  • Open 4 terminal windows side-by-side for best experience
+  • If something breaks, restart that component
+  • Check browser DevTools console for errors
+  • Monitor folders: watch -n 1 'ls -la systems/ML/alerts/'
+
+═══════════════════════════════════════════════════════════════════════════
+
+✨ STATUS: READY TO RUN
+═══════════════════════════════════════════════════════════════════════════
+
+  ✅ Frontend code: Ready
+  ✅ Backend code: Ready
+  ✅ Systems folders: Ready
+  ✅ API integration: Complete
+  ✅ Data flow: Verified
+  ✅ Documentation: Complete
+
+  All systems are configured and waiting for you to start them!
+
+═══════════════════════════════════════════════════════════════════════════
+
+Next: Open 4 terminals and follow the FASTEST START commands above!
+
+═══════════════════════════════════════════════════════════════════════════

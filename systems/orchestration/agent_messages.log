@@ -1,0 +1,65 @@
+[16:07:43] HostPlanner → deploy 4 host(s)
+[16:07:43] CHECKPOINT [ask_hosts] → OK | hosts=4
+[16:07:43] LabDeployer → blueprint + containerlab (4 hosts)
+[16:07:43] [+] Generated lab.clab.yml with 4 host(s).
+[+] File: lab.clab.yml
+[16:07:43] CHECKPOINT [blueprint] → OK | hosts=4
+[16:07:43] LabDeployer → /usr/bin/containerlab deploy -t lab.clab.yml
+[16:07:45] CHECKPOINT [deploy_lab] → OK | lab running
+[16:07:50] TrafficCapture → sudo /home/test/IDS/systems/venv/bin/python3 live-traffic-montior.py
+[16:07:52] sudo -n failed — retrying sudo
+[16:07:54] CHECKPOINT [capture] → FAIL | pid=45774 python=/home/test/IDS/systems/venv/bin/python3 log=/home/test/IDS/systems/orchestration/logs/capture.log
+[16:07:59] AttackRunner + DetectionRunner → start
+[16:07:59] CHECKPOINT [live_csv] → OK | rows=15461 path=/home/test/IDS/systems/ML/data/live-traffic.csv
+[16:07:59]   → attack_orchestrator.py --once --subnet 10.10.10.0/24
+[16:08:29]   … attack still running (30s)
+[16:08:59]   … attack still running (60s)
+[16:09:29]   … attack still running (90s)
+[16:09:59]   … attack still running (120s)
+[16:10:29]   … attack still running (150s)
+[16:10:59]   … attack still running (180s)
+[16:11:29]   … attack still running (210s)
+[16:11:59]   … attack still running (240s)
+[16:12:29]   … attack still running (270s)
+[16:12:59]   … attack still running (300s)
+[16:13:29]   … attack still running (330s)
+[16:14:00]   … attack still running (360s)
+[16:14:30]   … attack still running (390s)
+[16:15:00]   … attack still running (420s)
+[16:15:30]   … attack still running (450s)
+[16:16:00]   … attack still running (480s)
+[16:16:30]   … attack still running (510s)
+[16:17:00]   … attack still running (540s)
+[16:17:30]   … attack still running (570s)
+[16:18:00]   … attack still running (600s)
+[16:18:30]   … attack still running (630s)
+[16:19:00]   … attack still running (660s)
+[16:19:30]   … attack still running (690s)
+[16:20:00]   … attack still running (720s)
+[16:20:30]   … attack still running (750s)
+[16:21:00]   … attack still running (780s)
+[16:21:30]   … attack still running (810s)
+[16:22:00]   … attack still running (840s)
+[16:22:02] CHECKPOINT [attack] → OK | exit=0 log=/home/test/IDS/systems/orchestration/logs/attack.log
+[16:22:02]   → Bonet-Detection.py
+[16:22:02]   → C-2-Detection.py
+[16:22:02]   → Data-Exfilration-Detection.py
+[16:22:02]   → Lateral-Movenment.py
+[16:22:02]   → Portscan-Detection.py
+[16:22:02]   → Ssh-Bruteforce-Detector.py
+[16:22:11] CHECKPOINT [detector:Bonet-Detection.py] → OK | exit=0 log=/home/test/IDS/systems/orchestration/logs/Bonet-Detection.py.log
+[16:22:11] CHECKPOINT [detector:C-2-Detection.py] → OK | exit=0 log=/home/test/IDS/systems/orchestration/logs/C-2-Detection.py.log
+[16:22:11] CHECKPOINT [detector:Data-Exfilration-Detection.py] → OK | exit=0 log=/home/test/IDS/systems/orchestration/logs/Data-Exfilration-Detection.py.log
+[16:22:11] CHECKPOINT [detector:Lateral-Movenment.py] → OK | exit=0 log=/home/test/IDS/systems/orchestration/logs/Lateral-Movenment.py.log
+[16:22:12] CHECKPOINT [detector:Portscan-Detection.py] → OK | exit=0 log=/home/test/IDS/systems/orchestration/logs/Portscan-Detection.py.log
+[16:22:12] CHECKPOINT [detector:Ssh-Bruteforce-Detector.py] → OK | exit=0 log=/home/test/IDS/systems/orchestration/logs/Ssh-Bruteforce-Detector.py.log
+[16:22:12] CHECKPOINT [parallel] → OK | attack=True detectors=True
+[16:22:12] Validator → ground-truth comparison
+[16:22:16] CHECKPOINT [ground_truth] → OK | OK
+[16:22:16] Feedback → error detection / retraining / model validation
+[16:22:17] CHECKPOINT [feedback_node] → OK
+[16:22:17] Coordinator → pipeline finished
+[16:22:17]   hosts=4 lab_up=True
+[16:22:17]   capture_pid=45774
+[16:22:17]   attack_ok=True detectors_ok=True
+[16:22:17]   validation_ok=True

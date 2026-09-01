@@ -1,0 +1,32 @@
+name: cyberlab
+
+mgmt:
+  network: cyberlab-mgmt
+  ipv4-subnet: 10.10.10.0/24
+
+topology:
+  kinds:
+    linux:
+      binds:
+        - /lib/modules:/lib/modules:ro
+
+  nodes:
+    host1:
+      kind: linux
+      image: vuln-web
+      mgmt-ipv4: 10.10.10.101
+
+    host2:
+      kind: linux
+      image: vuln-ssh
+      mgmt-ipv4: 10.10.10.102
+
+    host3:
+      kind: linux
+      image: vuln-smbd
+      mgmt-ipv4: 10.10.10.103
+
+    host4:
+      kind: linux
+      image: vuln-ftp
+      mgmt-ipv4: 10.10.10.104

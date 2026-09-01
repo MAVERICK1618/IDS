@@ -1,0 +1,27 @@
+============================================================
+ BOTNET DETECTION — LIVE TRAFFIC CSV
+============================================================
+[+] Loaded 15461 flows from /home/test/IDS/systems/ML/data/live-traffic.csv
+[+] Columns: ['src_ip', 'dst_ip', 'src_port', 'dst_port', 'protocol', 'duration', 'packet_count', 'total backward packets', 'bytes_sent', 'bytes_received', 'fwd packet length max', 'fwd packet length min'] ...
+[+] Engineered features: jitter, byte_ratio, packet_rate_ratio, total_packets
+[+] Isolation Forest done — anomalies: 310 (2.01%)
+[+] Botnet rules applied — BOTNET flows: 382
+[+] Saved predictions (BOTNET only): /home/test/IDS/systems/ML/processed/botnet-predictions.csv  (382 rows)
+ALERT [Bonet] attacker_ip: [224.0.0.251] host_compromised: [10.10.10.1]
+ALERT [Bonet] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.105]
+ALERT [Bonet] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.103]
+ALERT [Bonet] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.101]
+ALERT [Bonet] attacker_ip: [239.255.255.250] host_compromised: [10.10.10.1]
+ALERT [Bonet] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.102]
+[+] Saved single alert file: /home/test/IDS/systems/ML/alerts/botnet-alert.json  (6 alert(s))
+
+============================================================
+ SUMMARY
+============================================================
+  Total flows         : 15461
+  Isolation anomalies : 310
+  BOTNET flows        : 382
+  Alerts generated    : 6
+  botnet-predictions.csv     : /home/test/IDS/systems/ML/processed/botnet-predictions.csv
+  Alert file          : /home/test/IDS/systems/ML/alerts/botnet-alert.json
+============================================================

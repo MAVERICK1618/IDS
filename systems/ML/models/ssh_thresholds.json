@@ -1,0 +1,4 @@
+{
+    "MIN_ATTEMPTS_FLOOR": 2,
+    "MAX_AVG_FLOW_DURATION_SEC": 60.0
+}

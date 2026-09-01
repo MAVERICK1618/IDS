@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "2026-09-01T10:52:09.565932+00:00",
+    "alert_type": "C2",
+    "message": "ALERT [C2] attacker_ip: [10.10.10.104] host_compromised: [10.10.10.1]",
+    "attacker_ip": "10.10.10.104",
+    "host_compromised": "10.10.10.1"
+  },
+  {
+    "timestamp": "2026-09-01T10:52:09.565932+00:00",
+    "alert_type": "C2",
+    "message": "ALERT [C2] attacker_ip: [10.10.10.102] host_compromised: [10.10.10.1]",
+    "attacker_ip": "10.10.10.102",
+    "host_compromised": "10.10.10.1"
+  },
+  {
+    "timestamp": "2026-09-01T10:52:09.565932+00:00",
+    "alert_type": "C2",
+    "message": "ALERT [C2] attacker_ip: [10.10.10.101] host_compromised: [10.10.10.1]",
+    "attacker_ip": "10.10.10.101",
+    "host_compromised": "10.10.10.1"
+  },
+  {
+    "timestamp": "2026-09-01T10:52:09.565932+00:00",
+    "alert_type": "C2",
+    "message": "ALERT [C2] attacker_ip: [10.10.10.103] host_compromised: [10.10.10.1]",
+    "attacker_ip": "10.10.10.103",
+    "host_compromised": "10.10.10.1"
+  },
+  {
+    "timestamp": "2026-09-01T10:52:09.565932+00:00",
+    "alert_type": "C2",
+    "message": "ALERT [C2] attacker_ip: [10.10.10.105] host_compromised: [10.10.10.1]",
+    "attacker_ip": "10.10.10.105",
+    "host_compromised": "10.10.10.1"
+  }
+]

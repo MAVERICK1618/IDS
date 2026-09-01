@@ -1,0 +1,29 @@
+======================================================================
+ 3-STAGE ATTACK CHAIN / DATA EXFILTRATION DETECTOR
+======================================================================
+[+] Loaded 15461 flows from /home/test/IDS/systems/ML/data/live-traffic.csv
+[+] Recon/probe candidates : 5
+[+] Brute-force candidates : 8
+[+] Exfiltration candidates: 0
+
+======================================================================
+ CROSS-STAGE VALIDATION
+======================================================================
+Actor 10.10.10.1: Stage1=YES | Stage2=YES | Stage3=no  => CONFIRMED
+ALERT [Exfil] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.102]
+ALERT [Exfil] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.103]
+ALERT [Exfil] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.101]
+ALERT [Exfil] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.105]
+ALERT [Exfil] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.104]
+
+[+] Saved predictions: /home/test/IDS/systems/ML/processed/data-exfil-predictions.csv  (5 rows)
+[+] Saved single alert file: /home/test/IDS/systems/ML/alerts/data-exfil-alert.json  (5 alert(s))
+
+======================================================================
+ SUMMARY
+======================================================================
+  Total flows          : 15461
+  Confirmed alerts     : 5
+  data-exfil-predictions.csv      : /home/test/IDS/systems/ML/processed/data-exfil-predictions.csv
+  Alert file           : /home/test/IDS/systems/ML/alerts/data-exfil-alert.json
+======================================================================
