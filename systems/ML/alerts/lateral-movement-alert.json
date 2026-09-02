@@ -1,34 +1,34 @@
 [
   {
-    "timestamp": "2026-09-02T06:21:12.711588+00:00",
+    "timestamp": "2026-09-02T10:03:47.894267+00:00",
     "alert_type": "LATERAL_MOVEMENT",
     "message": "ALERT [lateral-movement] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.101]",
     "attacker_ip": "10.10.10.1",
     "host_compromised": "10.10.10.101"
   },
   {
-    "timestamp": "2026-09-02T06:21:12.711588+00:00",
+    "timestamp": "2026-09-02T10:03:47.894267+00:00",
     "alert_type": "LATERAL_MOVEMENT",
     "message": "ALERT [lateral-movement] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.103]",
     "attacker_ip": "10.10.10.1",
     "host_compromised": "10.10.10.103"
   },
   {
-    "timestamp": "2026-09-02T06:21:12.711588+00:00",
+    "timestamp": "2026-09-02T10:03:47.894267+00:00",
     "alert_type": "LATERAL_MOVEMENT",
     "message": "ALERT [lateral-movement] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.102]",
     "attacker_ip": "10.10.10.1",
     "host_compromised": "10.10.10.102"
   },
   {
-    "timestamp": "2026-09-02T06:21:12.711588+00:00",
+    "timestamp": "2026-09-02T10:03:47.894267+00:00",
     "alert_type": "LATERAL_MOVEMENT",
     "message": "ALERT [lateral-movement] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.105]",
     "attacker_ip": "10.10.10.1",
     "host_compromised": "10.10.10.105"
   },
   {
-    "timestamp": "2026-09-02T06:21:12.711588+00:00",
+    "timestamp": "2026-09-02T10:03:47.894267+00:00",
     "alert_type": "LATERAL_MOVEMENT",
     "message": "ALERT [lateral-movement] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.104]",
     "attacker_ip": "10.10.10.1",
