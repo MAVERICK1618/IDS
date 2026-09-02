@@ -9,28 +9,20 @@
 /home/test/IDS/systems/Red-Team/gt-port.py:34: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
   timestamp = datetime.utcnow().isoformat() + "Z"
 [*] Source IP detected: 172.16.123.128
+[*] Starting port scan on 10.10.10.101 (1-500)
+[*] Ground-truth CSV will be written to: /home/test/IDS/systems/Red-Team/ground/portscan.csv
+[+] Port 21 OPEN on 10.10.10.101
+[+] Port 22 OPEN on 10.10.10.101
+[*] Port scan completed
+[*] Ground-truth saved → /home/test/IDS/systems/Red-Team/ground/portscan.csv
+/home/test/IDS/systems/Red-Team/gt-port.py:34: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamp = datetime.utcnow().isoformat() + "Z"
+[*] Source IP detected: 172.16.123.128
 [*] Starting port scan on 10.10.10.102 (1-500)
 [*] Ground-truth CSV will be written to: /home/test/IDS/systems/Red-Team/ground/portscan.csv
 [+] Port 22 OPEN on 10.10.10.102
-[*] Port scan completed
-[*] Ground-truth saved → /home/test/IDS/systems/Red-Team/ground/portscan.csv
-/home/test/IDS/systems/Red-Team/gt-port.py:34: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
-  timestamp = datetime.utcnow().isoformat() + "Z"
-[*] Source IP detected: 172.16.123.128
-[*] Starting port scan on 10.10.10.104 (1-500)
-[*] Ground-truth CSV will be written to: /home/test/IDS/systems/Red-Team/ground/portscan.csv
-[+] Port 21 OPEN on 10.10.10.104
-[+] Port 22 OPEN on 10.10.10.104
-[*] Port scan completed
-[*] Ground-truth saved → /home/test/IDS/systems/Red-Team/ground/portscan.csv
-/home/test/IDS/systems/Red-Team/gt-port.py:34: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
-  timestamp = datetime.utcnow().isoformat() + "Z"
-[*] Source IP detected: 172.16.123.128
-[*] Starting port scan on 10.10.10.101 (1-500)
-[*] Ground-truth CSV will be written to: /home/test/IDS/systems/Red-Team/ground/portscan.csv
-[+] Port 22 OPEN on 10.10.10.101
-[+] Port 80 OPEN on 10.10.10.101
-[+] Port 443 OPEN on 10.10.10.101
+[+] Port 80 OPEN on 10.10.10.102
+[+] Port 443 OPEN on 10.10.10.102
 [*] Port scan completed
 [*] Ground-truth saved → /home/test/IDS/systems/Red-Team/ground/portscan.csv
 [*] Scanning port 22 on 10.10.10.1...
@@ -83,41 +75,41 @@ test
     altname enp2s1
     altname enx000c2905d60b
     inet 172.16.123.128/24 brd 172.16.123.255 scope global dynamic noprefixroute ens33
-       valid_lft 1292sec preferred_lft 1292sec
+       valid_lft 1792sec preferred_lft 1792sec
     inet6 fe80::20c:29ff:fe05:d60b/64 scope link noprefixroute 
        valid_lft forever preferred_lft forever
-3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
-    link/ether be:2f:f2:1d:f8:2f brd ff:ff:ff:ff:ff:ff
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 52:66:4b:fe:93:b6 brd ff:ff:ff:ff:ff:ff
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
        valid_lft forever preferred_lft forever
-4: br-01dde6f4e0fd: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
-    link/ether 52:31:1f:92:44:4d brd ff:ff:ff:ff:ff:ff
-    inet 10.10.10.1/24 brd 10.10.10.255 scope global br-01dde6f4e0fd
+31: br-38340cc84381: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether b6:4a:f1:be:ae:e8 brd ff:ff:ff:ff:ff:ff
+    inet 10.10.10.1/24 brd 10.10.10.255 scope global br-38340cc84381
        valid_lft forever preferred_lft forever
-    inet6 fe80::5031:1fff:fe92:444d/64 scope link proto kernel_ll 
+    inet6 fe80::b44a:f1ff:febe:aee8/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
-14: veth64ede99@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-01dde6f4e0fd state UP group default 
-    link/ether 32:e7:20:fc:ac:ae brd ff:ff:ff:ff:ff:ff link-netnsid 0
-    inet6 fe80::30e7:20ff:fefc:acae/64 scope link proto kernel_ll 
+32: veth12e6b1f@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-38340cc84381 state UP group default 
+    link/ether 32:a8:2f:d2:10:f5 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::347a:b3ff:fee2:7c0d/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
-15: veth4ece2e8@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-01dde6f4e0fd state UP group default 
-    link/ether 52:fd:f7:95:a5:6c brd ff:ff:ff:ff:ff:ff link-netnsid 1
-    inet6 fe80::8858:2fff:fe8f:a73b/64 scope link proto kernel_ll 
+33: vethe66c483@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-38340cc84381 state UP group default 
+    link/ether 52:12:6a:74:b8:45 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::c8fe:6eff:fe79:2ce4/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
-16: vethc79f416@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-01dde6f4e0fd state UP group default 
-    link/ether 42:7e:99:ac:d3:62 brd ff:ff:ff:ff:ff:ff link-netnsid 2
-    inet6 fe80::a04e:cbff:fe92:7541/64 scope link proto kernel_ll 
+34: veth1cc75a2@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-38340cc84381 state UP group default 
+    link/ether ba:05:06:0d:2b:5b brd ff:ff:ff:ff:ff:ff link-netnsid 2
+    inet6 fe80::2c75:7eff:fed9:463d/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
-17: veth49bb970@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-01dde6f4e0fd state UP group default 
-    link/ether 22:85:cd:6f:e6:a3 brd ff:ff:ff:ff:ff:ff link-netnsid 3
-    inet6 fe80::a476:c1ff:fefc:10a2/64 scope link proto kernel_ll 
+35: veth125dfd6@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-38340cc84381 state UP group default 
+    link/ether 9a:17:7d:f6:c5:9f brd ff:ff:ff:ff:ff:ff link-netnsid 3
+    inet6 fe80::2ced:67ff:fee9:bcff/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
 [*] Running: arp -a || cat /proc/net/arp
-clab-cyberlab-host1 (10.10.10.101) at 2a:7f:94:54:56:0f [ether] on br-01dde6f4e0fd
-clab-cyberlab-host4 (10.10.10.104) at 22:b5:fd:2d:dc:6e [ether] on br-01dde6f4e0fd
-clab-cyberlab-host3 (10.10.10.103) at 72:31:37:7a:e0:60 [ether] on br-01dde6f4e0fd
-clab-cyberlab-host2 (10.10.10.102) at 56:5e:3e:03:04:f0 [ether] on br-01dde6f4e0fd
-_gateway (172.16.123.2) at 00:50:56:f0:0d:3b [ether] on ens33
+clab-cyberlab-host3 (10.10.10.103) at c2:00:fb:50:50:4a [ether] on br-38340cc84381
+? (172.16.123.254) at 00:50:56:ea:a9:78 [ether] on ens33
+clab-cyberlab-host2 (10.10.10.102) at 4e:cf:f0:90:31:eb [ether] on br-38340cc84381
+clab-cyberlab-host4 (10.10.10.104) at 8a:a8:11:97:36:c3 [ether] on br-38340cc84381
+clab-cyberlab-host1 (10.10.10.101) at 7a:8a:e7:73:bc:b4 [ether] on br-38340cc84381
 [*] Running: cat /etc/hosts
 127.0.0.1 localhost
 127.0.1.1 test
@@ -129,10 +121,10 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ###### CLAB-cyberlab-START ######
-10.10.10.101	clab-cyberlab-host1 18da4d9a85c7	# Kind: linux
-10.10.10.102	clab-cyberlab-host2 dde37a5c1bbc	# Kind: linux
-10.10.10.103	clab-cyberlab-host3 85a8812f2f8d	# Kind: linux
-10.10.10.104	clab-cyberlab-host4 fa76ab0d194b	# Kind: linux
+10.10.10.101	clab-cyberlab-host1 dd9e500fde4a	# Kind: linux
+10.10.10.102	clab-cyberlab-host2 96bd1bf3991f	# Kind: linux
+10.10.10.103	clab-cyberlab-host3 6d55721806cc	# Kind: linux
+10.10.10.104	clab-cyberlab-host4 9f538d5fcc84	# Kind: linux
 ###### CLAB-cyberlab-END ######
 [+] Session finished – logging out
 
@@ -158,40 +150,40 @@ test
     altname enp2s1
     altname enx000c2905d60b
     inet 172.16.123.128/24 brd 172.16.123.255 scope global dynamic noprefixroute ens33
-       valid_lft 1225sec preferred_lft 1225sec
+       valid_lft 1741sec preferred_lft 1741sec
     inet6 fe80::20c:29ff:fe05:d60b/64 scope link noprefixroute 
        valid_lft forever preferred_lft forever
-3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
-    link/ether be:2f:f2:1d:f8:2f brd ff:ff:ff:ff:ff:ff
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 52:66:4b:fe:93:b6 brd ff:ff:ff:ff:ff:ff
     inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
        valid_lft forever preferred_lft forever
-4: br-01dde6f4e0fd: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
-    link/ether 52:31:1f:92:44:4d brd ff:ff:ff:ff:ff:ff
-    inet 10.10.10.1/24 brd 10.10.10.255 scope global br-01dde6f4e0fd
+31: br-38340cc84381: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether b6:4a:f1:be:ae:e8 brd ff:ff:ff:ff:ff:ff
+    inet 10.10.10.1/24 brd 10.10.10.255 scope global br-38340cc84381
        valid_lft forever preferred_lft forever
-    inet6 fe80::5031:1fff:fe92:444d/64 scope link proto kernel_ll 
+    inet6 fe80::b44a:f1ff:febe:aee8/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
-14: veth64ede99@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-01dde6f4e0fd state UP group default 
-    link/ether 32:e7:20:fc:ac:ae brd ff:ff:ff:ff:ff:ff link-netnsid 0
-    inet6 fe80::30e7:20ff:fefc:acae/64 scope link proto kernel_ll 
+32: veth12e6b1f@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-38340cc84381 state UP group default 
+    link/ether 32:a8:2f:d2:10:f5 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::347a:b3ff:fee2:7c0d/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
-15: veth4ece2e8@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-01dde6f4e0fd state UP group default 
-    link/ether 52:fd:f7:95:a5:6c brd ff:ff:ff:ff:ff:ff link-netnsid 1
-    inet6 fe80::8858:2fff:fe8f:a73b/64 scope link proto kernel_ll 
+33: vethe66c483@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-38340cc84381 state UP group default 
+    link/ether 52:12:6a:74:b8:45 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::c8fe:6eff:fe79:2ce4/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
-16: vethc79f416@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-01dde6f4e0fd state UP group default 
-    link/ether 42:7e:99:ac:d3:62 brd ff:ff:ff:ff:ff:ff link-netnsid 2
-    inet6 fe80::a04e:cbff:fe92:7541/64 scope link proto kernel_ll 
+34: veth1cc75a2@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-38340cc84381 state UP group default 
+    link/ether ba:05:06:0d:2b:5b brd ff:ff:ff:ff:ff:ff link-netnsid 2
+    inet6 fe80::2c75:7eff:fed9:463d/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
-17: veth49bb970@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-01dde6f4e0fd state UP group default 
-    link/ether 22:85:cd:6f:e6:a3 brd ff:ff:ff:ff:ff:ff link-netnsid 3
-    inet6 fe80::a476:c1ff:fefc:10a2/64 scope link proto kernel_ll 
+35: veth125dfd6@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-38340cc84381 state UP group default 
+    link/ether 9a:17:7d:f6:c5:9f brd ff:ff:ff:ff:ff:ff link-netnsid 3
+    inet6 fe80::2ced:67ff:fee9:bcff/64 scope link proto kernel_ll 
        valid_lft forever preferred_lft forever
 [*] Running: arp -a || cat /proc/net/arp
-clab-cyberlab-host1 (10.10.10.101) at 2a:7f:94:54:56:0f [ether] on br-01dde6f4e0fd
-clab-cyberlab-host4 (10.10.10.104) at 22:b5:fd:2d:dc:6e [ether] on br-01dde6f4e0fd
-clab-cyberlab-host3 (10.10.10.103) at 72:31:37:7a:e0:60 [ether] on br-01dde6f4e0fd
-clab-cyberlab-host2 (10.10.10.102) at 56:5e:3e:03:04:f0 [ether] on br-01dde6f4e0fd
+clab-cyberlab-host3 (10.10.10.103) at c2:00:fb:50:50:4a [ether] on br-38340cc84381
+clab-cyberlab-host2 (10.10.10.102) at 4e:cf:f0:90:31:eb [ether] on br-38340cc84381
+clab-cyberlab-host4 (10.10.10.104) at 8a:a8:11:97:36:c3 [ether] on br-38340cc84381
+clab-cyberlab-host1 (10.10.10.101) at 7a:8a:e7:73:bc:b4 [ether] on br-38340cc84381
 _gateway (172.16.123.2) at 00:50:56:f0:0d:3b [ether] on ens33
 [*] Running: cat /etc/hosts
 127.0.0.1 localhost
@@ -204,10 +196,10 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ###### CLAB-cyberlab-START ######
-10.10.10.101	clab-cyberlab-host1 18da4d9a85c7	# Kind: linux
-10.10.10.102	clab-cyberlab-host2 dde37a5c1bbc	# Kind: linux
-10.10.10.103	clab-cyberlab-host3 85a8812f2f8d	# Kind: linux
-10.10.10.104	clab-cyberlab-host4 fa76ab0d194b	# Kind: linux
+10.10.10.101	clab-cyberlab-host1 dd9e500fde4a	# Kind: linux
+10.10.10.102	clab-cyberlab-host2 96bd1bf3991f	# Kind: linux
+10.10.10.103	clab-cyberlab-host3 6d55721806cc	# Kind: linux
+10.10.10.104	clab-cyberlab-host4 9f538d5fcc84	# Kind: linux
 ###### CLAB-cyberlab-END ######
 [+] Session finished – logging out
 
@@ -229,6 +221,7 @@ Documents
 Downloads
 IDS
 IDS web
+IDS.worktrees
 IDS2.zip
 Music
 Pictures
@@ -240,17 +233,17 @@ snap
 traffic
 update-manager.elf
 [*] Running: ls -la
-total 1163368
-drwxr-x--- 26 test test       4096 Sep  1 14:44 .
+total 1163372
+drwxr-x--- 27 test test       4096 Sep  2 10:26 .
 drwxr-xr-x  5 root root       4096 Jul 13 21:32 ..
--rw-------  1 test test      55088 Sep  1 14:44 .bash_history
+-rw-------  1 test test      53902 Sep  2 10:26 .bash_history
 -rw-------  1 test test      53860 Jul 16 14:17 .bash_history-16805.tmp
 -rw-r--r--  1 test test        220 Feb 13  2026 .bash_logout
 -rw-r--r--  1 test test       3809 Jul 17 12:06 .bashrc
 drwx------ 26 test test       4096 Sep  1 14:54 .cache
 -rw-rw-r--  1 test test          0 Jul  7 15:59 .cloud-locale-test.skip
 drwx------ 23 test test       4096 Aug 28 14:19 .config
-drwx------  6 test test       4096 Sep  1 14:54 .copilot
+drwx------  6 test test       4096 Sep  2 10:06 .copilot
 drwxrwxr-x  3 test test       4096 Aug 28 11:35 .dotnet
 drwxr-xr-x  4 test test       4096 Aug 28 14:19 .gemini
 drwx------  2 test test       4096 Sep  1 14:40 .gnupg
@@ -264,8 +257,9 @@ drwxrwxr-x  3 test test       4096 Jul  7 15:59 .vscode-shared
 drwxr-xr-x  2 test test       4096 Aug 27 15:34 Desktop
 drwxr-xr-x  3 test test       4096 Jul  3 21:56 Documents
 drwxr-xr-x  4 test test       4096 Sep  1 13:48 Downloads
-drwxrwxr-x  6 test test       4096 Sep  1 15:59 IDS
+drwxrwxr-x  6 test test       4096 Sep  2 10:23 IDS
 drwxrwxr-x  3 test test       4096 Sep  1 10:47 IDS web
+drwxrwxr-x  3 test test       4096 Sep  2 10:05 IDS.worktrees
 -rw-rw-r--  1 test test 1191040811 Aug 27 15:35 IDS2.zip
 drwxr-xr-x  2 test test       4096 May 25 18:32 Music
 drwxr-xr-x  3 test test       4096 Jun  1 17:24 Pictures
@@ -294,6 +288,7 @@ Documents
 Downloads
 IDS
 IDS web
+IDS.worktrees
 IDS2.zip
 Music
 Pictures
@@ -305,17 +300,17 @@ snap
 traffic
 update-manager.elf
 [*] Running: ls -la
-total 1163368
-drwxr-x--- 26 test test       4096 Sep  1 14:44 .
+total 1163372
+drwxr-x--- 27 test test       4096 Sep  2 10:26 .
 drwxr-xr-x  5 root root       4096 Jul 13 21:32 ..
--rw-------  1 test test      55088 Sep  1 14:44 .bash_history
+-rw-------  1 test test      53902 Sep  2 10:26 .bash_history
 -rw-------  1 test test      53860 Jul 16 14:17 .bash_history-16805.tmp
 -rw-r--r--  1 test test        220 Feb 13  2026 .bash_logout
 -rw-r--r--  1 test test       3809 Jul 17 12:06 .bashrc
 drwx------ 26 test test       4096 Sep  1 14:54 .cache
 -rw-rw-r--  1 test test          0 Jul  7 15:59 .cloud-locale-test.skip
 drwx------ 23 test test       4096 Aug 28 14:19 .config
-drwx------  6 test test       4096 Sep  1 14:54 .copilot
+drwx------  6 test test       4096 Sep  2 10:06 .copilot
 drwxrwxr-x  3 test test       4096 Aug 28 11:35 .dotnet
 drwxr-xr-x  4 test test       4096 Aug 28 14:19 .gemini
 drwx------  2 test test       4096 Sep  1 14:40 .gnupg
@@ -329,8 +324,9 @@ drwxrwxr-x  3 test test       4096 Jul  7 15:59 .vscode-shared
 drwxr-xr-x  2 test test       4096 Aug 27 15:34 Desktop
 drwxr-xr-x  3 test test       4096 Jul  3 21:56 Documents
 drwxr-xr-x  4 test test       4096 Sep  1 13:48 Downloads
-drwxrwxr-x  6 test test       4096 Sep  1 15:59 IDS
+drwxrwxr-x  6 test test       4096 Sep  2 10:23 IDS
 drwxrwxr-x  3 test test       4096 Sep  1 10:47 IDS web
+drwxrwxr-x  3 test test       4096 Sep  2 10:05 IDS.worktrees
 -rw-rw-r--  1 test test 1191040811 Aug 27 15:35 IDS2.zip
 drwxr-xr-x  2 test test       4096 May 25 18:32 Music
 drwxr-xr-x  3 test test       4096 Jun  1 17:24 Pictures
@@ -346,104 +342,6 @@ test
 [*] Running: uname -a
 Linux test 7.0.0-30-generic #30-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 18:22:54 UTC 2026 x86_64 GNU/Linux
 [+] Session finished – logging out
-
-[+] Done.
-[*] Scanning port 22 on 10.10.10.102...
-[+] Port 22 is OPEN
-
-[*] Starting SSH Brute-Force on 10.10.10.102:22
-[*] Logging ground truth to: ./ground/ssh.csv
-
-[-] Failed auth: admin:admin
-[-] Failed auth: admin:admin12
-[-] Failed auth: admin:msfadmin
-
-[!] SUCCESS → admin:admin123
-[*] Source IP: 172.16.123.128
-[*] Target: 10.10.10.102
-[*] User: test
-[*] Ground-truth: ./ground/lateral.csv
-[!] Only use on systems you own
-
-
-[*] Connecting to 10.10.10.102 ...
-[!] Auth failed — wrong username/password
-
-[*] Waiting 60 seconds...
-
-[*] Connecting to 10.10.10.102 ...
-[!] Auth failed — wrong username/password
-
-[+] Done.
-[*] Source IP: 172.16.123.128
-[*] Target: 10.10.10.102
-[*] User: test
-[*] Ground-truth: ./ground/c2.csv
-[!] Only use on systems you own
-
-
-[*] Connecting to 10.10.10.102 ...
-[!] Auth failed — wrong username/password
-
-[*] Waiting 60 seconds...
-
-[*] Connecting to 10.10.10.102 ...
-[!] Auth failed — wrong username/password
-
-[+] Done.
-[*] Scanning port 22 on 10.10.10.104...
-[+] Port 22 is OPEN
-
-[*] Starting SSH Brute-Force on 10.10.10.104:22
-[*] Logging ground truth to: ./ground/ssh.csv
-
-[-] Failed auth: admin:admin
-[-] Failed auth: admin:admin12
-[-] Failed auth: admin:msfadmin
-[-] Failed auth: admin:admin123
-[-] Failed auth: admin12:admin
-[-] Failed auth: admin12:admin12
-[-] Failed auth: admin12:msfadmin
-[-] Failed auth: admin12:admin123
-[-] Failed auth: msfadmin:admin
-[-] Failed auth: msfadmin:admin12
-[-] Failed auth: msfadmin:msfadmin
-[-] Failed auth: msfadmin:admin123
-[-] Failed auth: admin123:admin
-[-] Failed auth: admin123:admin12
-[-] Failed auth: admin123:msfadmin
-[-] Failed auth: admin123:admin123
-[-] Brute force finished. No credentials found.
-[*] Source IP: 172.16.123.128
-[*] Target: 10.10.10.104
-[*] User: test
-[*] Ground-truth: ./ground/lateral.csv
-[!] Only use on systems you own
-
-
-[*] Connecting to 10.10.10.104 ...
-[!] Auth failed — wrong username/password
-
-[*] Waiting 60 seconds...
-
-[*] Connecting to 10.10.10.104 ...
-[!] Auth failed — wrong username/password
-
-[+] Done.
-[*] Source IP: 172.16.123.128
-[*] Target: 10.10.10.104
-[*] User: test
-[*] Ground-truth: ./ground/c2.csv
-[!] Only use on systems you own
-
-
-[*] Connecting to 10.10.10.104 ...
-[!] Auth failed — wrong username/password
-
-[*] Waiting 60 seconds...
-
-[*] Connecting to 10.10.10.104 ...
-[!] Auth failed — wrong username/password
 
 [+] Done.
 [*] Scanning port 22 on 10.10.10.101...
@@ -501,16 +399,71 @@ Linux test 7.0.0-30-generic #30-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 18:22:54 U
 [!] Auth failed — wrong username/password
 
 [+] Done.
-[*] Scanning web ports on 10.10.10.101...
+[*] Scanning port 22 on 10.10.10.102...
+[+] Port 22 is OPEN
+
+[*] Starting SSH Brute-Force on 10.10.10.102:22
+[*] Logging ground truth to: ./ground/ssh.csv
+
+[-] Failed auth: admin:admin
+[-] Failed auth: admin:admin12
+[-] Failed auth: admin:msfadmin
+[-] Failed auth: admin:admin123
+[-] Failed auth: admin12:admin
+[-] Failed auth: admin12:admin12
+[-] Failed auth: admin12:msfadmin
+[-] Failed auth: admin12:admin123
+[-] Failed auth: msfadmin:admin
+[-] Failed auth: msfadmin:admin12
+[-] Failed auth: msfadmin:msfadmin
+[-] Failed auth: msfadmin:admin123
+[-] Failed auth: admin123:admin
+[-] Failed auth: admin123:admin12
+[-] Failed auth: admin123:msfadmin
+[-] Failed auth: admin123:admin123
+[-] Brute force finished. No credentials found.
+[*] Source IP: 172.16.123.128
+[*] Target: 10.10.10.102
+[*] User: test
+[*] Ground-truth: ./ground/lateral.csv
+[!] Only use on systems you own
+
+
+[*] Connecting to 10.10.10.102 ...
+[!] Auth failed — wrong username/password
+
+[*] Waiting 60 seconds...
+
+[*] Connecting to 10.10.10.102 ...
+[!] Auth failed — wrong username/password
+
+[+] Done.
+[*] Source IP: 172.16.123.128
+[*] Target: 10.10.10.102
+[*] User: test
+[*] Ground-truth: ./ground/c2.csv
+[!] Only use on systems you own
+
+
+[*] Connecting to 10.10.10.102 ...
+[!] Auth failed — wrong username/password
+
+[*] Waiting 60 seconds...
+
+[*] Connecting to 10.10.10.102 ...
+[!] Auth failed — wrong username/password
+
+[+] Done.
+[*] Scanning web ports on 10.10.10.102...
 [+] Port 80 (HTTP) is OPEN
 [+] Port 443 (HTTPS) is OPEN
-[*] Starting Pure Python Slowloris on http://10.10.10.101
+[*] Starting Pure Python Slowloris on http://10.10.10.102
 [*] Duration: 60s
 [*] Ground-truth → ./ground/botnet.csv
 
 [+] src_ip = 172.16.123.128
-[+] dst_ip = 10.10.10.101:80
-[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 96[+] Active connections: 96[+] Active connections: 96
+[+] dst_ip = 10.10.10.102:80
+[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 1[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 2[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 3[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 4[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 5[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 6[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 7[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 8[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 9[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 10[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 11[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 12[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 13[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 14[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 15[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 16[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 17[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 18[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 19[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 20[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 21[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 22[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 23[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 24[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 25[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 26[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 27[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 28[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 29[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 30[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 31[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 32[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 33[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 34[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 35[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 36[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 37[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 38[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 39[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 40[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 41[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 42[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 43[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 44[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 45[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 46[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 47[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 48[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 49[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 50[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 51[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 52[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 53[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 54[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 55[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 56[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 57[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 58[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 59[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 60[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 61[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 62[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 63[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 64[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 65[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 66[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 67[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 68[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 69[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 70[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 71[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 72[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 73[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 74[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 75[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 76[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 77[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 78[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 79[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 80[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 81[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 82[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 83[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 84[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 85[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 86[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 87[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 88[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 89[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 90[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 91[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 92[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 93[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 94[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 95[+] Active connections: 96[+] Active connections: 96
 [+] Finished. Ground-truth saved → ./ground/botnet.csv
 ============================================================
  LAB ATTACK ORCHESTRATOR
@@ -524,13 +477,12 @@ Linux test 7.0.0-30-generic #30-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 31 18:22:54 U
 Lab / VMware isolated networks only.
 ============================================================
 
-[*] Cycle start @ 2026-09-01 16:07:59
+[*] Cycle start @ 2026-09-02 11:39:14
 [*] Discovery scan 10.10.10.0/24 (254 hosts) ports=[21, 22, 80, 443, 4444]
   [+] 10.10.10.1 open: [22]
-  [+] 10.10.10.102 open: [22]
-  [+] 10.10.10.104 open: [21, 22]
-  [+] 10.10.10.101 open: [22, 80, 443]
-[*] Targets found: 4
+  [+] 10.10.10.101 open: [21, 22]
+  [+] 10.10.10.102 open: [22, 80, 443]
+[*] Targets found: 3
 
 ============================================================
  PHASE 1: GENERAL PORT SCAN (all targets)
@@ -539,14 +491,11 @@ Lab / VMware isolated networks only.
 [*] Port-scanning 10.10.10.1 (1-500)
   → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-port.py 10.10.10.1 1 500
 
-[*] Port-scanning 10.10.10.102 (1-500)
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-port.py 10.10.10.102 1 500
-
-[*] Port-scanning 10.10.10.104 (1-500)
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-port.py 10.10.10.104 1 500
-
 [*] Port-scanning 10.10.10.101 (1-500)
   → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-port.py 10.10.10.101 1 500
+
+[*] Port-scanning 10.10.10.102 (1-500)
+  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-port.py 10.10.10.102 1 500
 
 [+] Phase 1 complete — ground/portscan.csv updated
 
@@ -562,29 +511,21 @@ Lab / VMware isolated networks only.
   [-] 80/443 closed — skip botnet
   [-] 21 closed — skip FTP
 
-=== 10.10.10.102 open=[22] ===
-  [*] 22 open → SSH + lateral + C2
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-ssh.py 10.10.10.102
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-lateral.py 10.10.10.102
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-c2.py 10.10.10.102
-  [-] 80/443 closed — skip botnet
-  [-] 21 closed — skip FTP
-
-=== 10.10.10.104 open=[21, 22] ===
-  [*] 22 open → SSH + lateral + C2
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-ssh.py 10.10.10.104
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-lateral.py 10.10.10.104
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-c2.py 10.10.10.104
-  [-] 80/443 closed — skip botnet
-  [*] 21 open → FTP not implemented yet
-
-=== 10.10.10.101 open=[22, 80, 443] ===
+=== 10.10.10.101 open=[21, 22] ===
   [*] 22 open → SSH + lateral + C2
   → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-ssh.py 10.10.10.101
   → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-lateral.py 10.10.10.101
   → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-c2.py 10.10.10.101
+  [-] 80/443 closed — skip botnet
+  [*] 21 open → FTP not implemented yet
+
+=== 10.10.10.102 open=[22, 80, 443] ===
+  [*] 22 open → SSH + lateral + C2
+  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-ssh.py 10.10.10.102
+  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-lateral.py 10.10.10.102
+  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-c2.py 10.10.10.102
   [*] 80/443 open → botnet
-  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-bonet.py 10.10.10.101
+  → /home/test/IDS/systems/venv/bin/python3 /home/test/IDS/systems/Red-Team/gt-bonet.py 10.10.10.102
   [-] 21 closed — skip FTP
 
 [+] Phase 2 complete

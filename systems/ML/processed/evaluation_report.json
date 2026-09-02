@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-01T10:52:16.281481+00:00",
+  "timestamp": "2026-09-02T06:21:19.151202+00:00",
   "ground_dir": "/home/test/IDS/systems/Red-Team/ground",
   "processed_dir": "/home/test/IDS/systems/ML/processed",
   "results": [
@@ -7,12 +7,12 @@
       "name": "botnet",
       "tp": 0,
       "fp": 8,
-      "fn": 5,
+      "fn": 6,
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
       "pred_count": 8,
-      "gt_count": 5,
+      "gt_count": 6,
       "gt_file": "botnet.csv",
       "pred_file": "botnet-predictions.csv"
     },

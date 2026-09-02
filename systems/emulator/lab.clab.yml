@@ -13,12 +13,12 @@ topology:
   nodes:
     host1:
       kind: linux
-      image: vuln-web
+      image: vuln-ftp
       mgmt-ipv4: 10.10.10.101
 
     host2:
       kind: linux
-      image: vuln-ssh
+      image: vuln-web
       mgmt-ipv4: 10.10.10.102
 
     host3:
@@ -28,5 +28,5 @@ topology:
 
     host4:
       kind: linux
-      image: vuln-ftp
+      image: vuln-smbd
       mgmt-ipv4: 10.10.10.104
