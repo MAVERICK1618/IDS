@@ -128,3 +128,8 @@
 /home/test/IDS/systems/venv/bin/python3: can't open file '/home/test/IDS/ML/Ssh-Bruteforce-Detector.py': [Errno 2] No such file or directory
 /home/test/IDS/systems/venv/bin/python3: can't open file '/home/test/IDS/ML/C-2-Detection.py': [Errno 2] No such file or directory
 /home/test/IDS/systems/venv/bin/python3: can't open file '/home/test/IDS/ML/Lateral-Movenment.py': [Errno 2] No such file or directory
+/home/test/IDS/systems/venv/bin/python3: can't open file '/home/test/IDS/ML/Bonet-Detection.py': [Errno 2] No such file or directory
+/home/test/IDS/systems/venv/bin/python3: can't open file '/home/test/IDS/ML/Portscan-Detection.py': [Errno 2] No such file or directory
+/home/test/IDS/systems/venv/bin/python3: can't open file '/home/test/IDS/ML/Ssh-Bruteforce-Detector.py': [Errno 2] No such file or directory
+/home/test/IDS/systems/venv/bin/python3: can't open file '/home/test/IDS/ML/C-2-Detection.py': [Errno 2] No such file or directory
+/home/test/IDS/systems/venv/bin/python3: can't open file '/home/test/IDS/ML/Lateral-Movenment.py': [Errno 2] No such file or directory

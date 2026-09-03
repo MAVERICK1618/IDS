@@ -27,20 +27,44 @@ except ImportError:
 
 app = Flask(__name__)
 
-# Load environment variables
+# ─────────────────────────────────────────────────────────────
+# ENVIRONMENT / CORS CONFIGURATION
+# ─────────────────────────────────────────────────────────────
 FLASK_ENV = os.getenv("FLASK_ENV", "development")
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",") if os.getenv("ALLOWED_ORIGINS") else ["*"]
-ALLOWED_ORIGINS = [origin.strip() for origin in ALLOWED_ORIGINS]
 
-# CORS configuration
+# IMPORTANT: if the frontend sends requests with `credentials: 'include'`,
+# the CORS spec forbids using "*" as the allowed origin — you must echo
+# back a specific, explicitly allow-listed origin instead. Default here
+# covers the local Vite dev server; override via ALLOWED_ORIGINS env var
+# (comma-separated) for other environments.
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173").split(",")
+ALLOWED_ORIGINS = [origin.strip() for origin in ALLOWED_ORIGINS if origin.strip()]
+ALLOW_ALL_ORIGINS = "*" in ALLOWED_ORIGINS  # only meaningful if credentials are NOT used
+
+
 @app.after_request
 def add_cors_headers(response):
-    origin = request.headers.get("Origin", "*")
-    if "*" in ALLOWED_ORIGINS or origin in ALLOWED_ORIGINS:
-        response.headers["Access-Control-Allow-Origin"] = origin if origin != "*" else "*"
+    origin = request.headers.get("Origin")
+
+    if origin and (ALLOW_ALL_ORIGINS or origin in ALLOWED_ORIGINS):
+        # Never send "*" when credentials are allowed — echo the exact origin.
+        response.headers["Access-Control-Allow-Origin"] = origin
+        response.headers["Access-Control-Allow-Credentials"] = "true"
         response.headers["Access-Control-Allow-Headers"] = "Content-Type,Authorization"
         response.headers["Access-Control-Allow-Methods"] = "GET,OPTIONS"
+        response.headers["Vary"] = "Origin"
+
     return response
+
+
+# Explicitly answer CORS preflight (OPTIONS) requests for every /api/* route.
+# Without this, a browser's preflight OPTIONS request can hit Flask's default
+# 404/405 handling before add_cors_headers ever gets a chance to attach the
+# right headers, which is what causes "preflight request doesn't pass" errors.
+@app.route("/api/<path:_any>", methods=["OPTIONS"])
+def cors_preflight(_any):
+    return make_response("", 204)
+
 
 # ─────────────────────────────────────────────────────────────
 # BASE PATHS
@@ -593,7 +617,7 @@ if __name__ == "__main__":
     print("  Development URL   : http://localhost:8000")
     print("  API Index         : http://localhost:8000/")
     print("=" * 60)
-    
+
     # Development: debug mode enabled
     # Production: use gunicorn or similar app server
     debug_mode = False
