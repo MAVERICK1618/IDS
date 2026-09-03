@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-02T10:03:51.484653+00:00",
+  "timestamp": "2026-09-03T08:35:16.241494+00:00",
   "ground_dir": "/home/test/IDS/systems/Red-Team/ground",
   "processed_dir": "/home/test/IDS/systems/ML/processed",
   "results": [
@@ -58,12 +58,12 @@
     {
       "name": "ssh",
       "tp": 0,
-      "fp": 0,
+      "fp": 5,
       "fn": 11,
       "precision": 0.0,
       "recall": 0.0,
       "f1": 0.0,
-      "pred_count": 0,
+      "pred_count": 5,
       "gt_count": 11,
       "gt_file": "ssh.csv",
       "pred_file": "ssh-brute-force-predictions.csv"

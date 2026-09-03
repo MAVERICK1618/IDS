@@ -6,14 +6,14 @@
       "prefix": "clab",
       "mgmt": {
         "network": "cyberlab-mgmt",
-        "bridge": "br-5490a803c1e9",
+        "bridge": "br-a9c2c1a46fe7",
         "ipv4-subnet": "10.10.10.0/24",
         "ipv4-gw": "10.10.10.1",
         "external-access": true
       }
     }
   },
-  "ssh-pub-keys": [],
+  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICNZrzqcChOAK77p9XGdAvhL6OJnweNPkl22bhzEbHic"],
   "nodes": {
     "host1": {
       "index": "0",
@@ -23,7 +23,7 @@
       "group": "",
       "labdir": "/home/test/IDS/systems/emulator/clab-cyberlab/host1",
       "kind": "linux",
-      "image": "vuln-web",
+      "image": "vuln-smbd",
       "mgmt-net": "",
       "mgmt-intf": "",
       "mgmt-ipv4-address": "10.10.10.101",
@@ -32,7 +32,7 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-5490a803c1e9",
+        "clab-mgmt-net-bridge": "br-a9c2c1a46fe7",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/test/IDS/systems/emulator/clab-cyberlab/host1",
@@ -47,19 +47,13 @@
         {
           "host-ip": "",
           "host-port": 0,
-          "port": 443,
+          "port": 139,
           "protocol": "tcp"
         },
         {
           "host-ip": "",
           "host-port": 0,
-          "port": 80,
-          "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 22,
+          "port": 445,
           "protocol": "tcp"
         }
       ]
@@ -72,7 +66,7 @@
       "group": "",
       "labdir": "/home/test/IDS/systems/emulator/clab-cyberlab/host2",
       "kind": "linux",
-      "image": "vuln-ssh",
+      "image": "vuln-web",
       "mgmt-net": "",
       "mgmt-intf": "",
       "mgmt-ipv4-address": "10.10.10.102",
@@ -81,7 +75,7 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-5490a803c1e9",
+        "clab-mgmt-net-bridge": "br-a9c2c1a46fe7",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/test/IDS/systems/emulator/clab-cyberlab/host2",
@@ -97,6 +91,18 @@
           "host-ip": "",
           "host-port": 0,
           "port": 22,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
           "protocol": "tcp"
         }
       ]
@@ -118,7 +124,7 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-5490a803c1e9",
+        "clab-mgmt-net-bridge": "br-a9c2c1a46fe7",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/test/IDS/systems/emulator/clab-cyberlab/host3",
@@ -146,7 +152,7 @@
       "group": "",
       "labdir": "/home/test/IDS/systems/emulator/clab-cyberlab/host4",
       "kind": "linux",
-      "image": "vuln-web",
+      "image": "vuln-ftp",
       "mgmt-net": "",
       "mgmt-intf": "",
       "mgmt-ipv4-address": "10.10.10.104",
@@ -155,7 +161,7 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-5490a803c1e9",
+        "clab-mgmt-net-bridge": "br-a9c2c1a46fe7",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/test/IDS/systems/emulator/clab-cyberlab/host4",
@@ -170,19 +176,13 @@
         {
           "host-ip": "",
           "host-port": 0,
+          "port": 21,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
           "port": 22,
-          "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 443,
-          "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 80,
           "protocol": "tcp"
         }
       ]

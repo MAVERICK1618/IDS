@@ -1,9 +1,9 @@
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║                                                                           ║
-║                     🎯 IDS PROJECT - START HERE 🎯                       ║
+║                     🎯 IDS PROJECT - START HERE 🎯                        ║
 ║                                                                           ║
 ║                           Data Flow: CONFIGURED ✅                        ║
-║                    Frontend ↔ Backend ↔ Systems: READY                  ║
+║                    Frontend ↔ Backend ↔ Systems: READY                    ║
 ║                                                                           ║
 ╚═══════════════════════════════════════════════════════════════════════════╝
 
@@ -42,27 +42,27 @@
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ TERMINAL 3: LIVE TRAFFIC MONITOR ──────────────────────────────────────┐
-│                                                                            │
+│                                                                         │
 │  cd /home/test/IDS/systems                                               │
-│  python3 -m venv venv 2>/dev/null || true                               │
+│  python3 -m venv venv 2>/dev/null || true                                │
 │  source venv/bin/activate                                                │
 │  pip install scapy psutil numpy                                           │
 │  python3 live-traffic-montior.py                                          │
 │                                                                            │
-│  ✓ Captures packets → ML/data/live-traffic.csv                           │
+│  ✓ Captures packets → ML/data/live-traffic.csv                             │
 └────────────────────────────────────────────────────────────────────────────┘
 
 ┌─ TERMINAL 4: ML DETECTOR (Pick One) ─────────────────────────────────────┐
-│                                                                            │
+│                                                                          │
 │  cd /home/test/IDS/systems/ML                                            │
-│  python3 -m venv venv 2>/dev/null || true                               │
+│  python3 -m venv venv 2>/dev/null || true                                │
 │  source venv/bin/activate                                                │
-│  pip install pandas scikit-learn                                          │
-│  python3 Portscan-Detection.py                                            │
-│                                                                            │
+│  pip install pandas scikit-learn                                         │
+│  python3 Portscan-Detection.py                                           │
+│                                                                          │
 │  Options: Portscan-Detection.py, Ssh-Bruteforce-Detector.py,             │
 │           Bonet-Detection.py, C-2-Detection.py, ...                      │
-│                                                                            │
+│                                                                          │
 │  ✓ Generates alerts → ML/alerts/*.json                                   │
 └────────────────────────────────────────────────────────────────────────────┘
 

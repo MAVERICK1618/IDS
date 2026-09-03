@@ -1,18 +1,38 @@
+[+] Loaded retrained thresholds from ssh_thresholds.json:
+    MIN_ATTEMPTS_FLOOR       = 2
+    MAX_AVG_FLOW_DURATION_SEC = 90.0
 ============================================================
  SSH BRUTE-FORCE DETECTION
 ============================================================
 [+] Loaded 15,461 flows from /home/test/IDS/systems/ML/data/live-traffic.csv
-[+] Adaptive threshold used: 292.0 attempts
-[+] No SSH brute-force activity detected.
-[+] Empty ssh-brute-force-predictions.csv written
-[+] Saved single alert file: /home/test/IDS/systems/ML/alerts/ssh-brute-force-alert.json  (0 alert(s))
+[+] Adaptive threshold used: 2.0 attempts
+
+[+] Detected 5 SSH brute-force pair(s):
+
+ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.102]
+  Attempts: 145 | Avg Duration: 1.337s | Severity: HIGH
+
+ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.103]
+  Attempts: 145 | Avg Duration: 1.310s | Severity: HIGH
+
+ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.101]
+  Attempts: 102 | Avg Duration: 1.296s | Severity: HIGH
+
+ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.105]
+  Attempts: 47 | Avg Duration: 1.333s | Severity: HIGH
+
+ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.104]
+  Attempts: 39 | Avg Duration: 1.311s | Severity: HIGH
+
+[+] Saved predictions (SSH_BRUTEFORCE only): /home/test/IDS/systems/ML/processed/ssh-brute-force-predictions.csv  (478 rows)
+[+] Saved single alert file: /home/test/IDS/systems/ML/alerts/ssh-brute-force-alert.json  (5 alert(s))
 
 ============================================================
  SUMMARY
 ============================================================
   Total flows              : 15,461
-  SSH brute-force alerts   : 0
-  Prediction rows          : 0
+  SSH brute-force alerts   : 5
+  Prediction rows          : 478
   predictions.csv          : /home/test/IDS/systems/ML/processed/ssh-brute-force-predictions.csv
   Alert file               : /home/test/IDS/systems/ML/alerts/ssh-brute-force-alert.json
 ============================================================

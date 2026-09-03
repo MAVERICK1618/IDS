@@ -1,0 +1,18 @@
+============================================================
+  IDS BACKEND API SERVER
+  Environment: development
+  CORS Origins: *
+============================================================
+  Development URL   : http://localhost:8000
+  API Index         : http://localhost:8000/
+============================================================
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://127.0.0.1:8000
+[33mPress CTRL+C to quit[0m
+/home/test/IDS/backend/app.py:161: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp":               datetime.utcnow().isoformat() + "Z"
+127.0.0.1 - - [03/Sep/2026 09:57:23] "GET /api/status HTTP/1.1" 200 -

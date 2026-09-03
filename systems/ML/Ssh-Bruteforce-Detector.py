@@ -16,18 +16,45 @@ import pandas as pd
 # Paths & Config
 # ---------------------------------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent
-CSV_FILE = BASE_DIR / "data" /"live-traffic.csv"          # change path if needed
+CSV_FILE = BASE_DIR / "data" / "live-traffic.csv"
 
 PROCESSED_DIR = BASE_DIR / "processed"
 ALERTS_DIR = BASE_DIR / "alerts"
+SSH_THRESHOLDS_FILE = BASE_DIR / "models" / "ssh_thresholds.json"
 
 for d in (PROCESSED_DIR, ALERTS_DIR):
     d.mkdir(exist_ok=True)
 
 SSH_PORT = 22
-MIN_ATTEMPTS_FLOOR = 5
-MAX_AVG_FLOW_DURATION_SEC = 10.0
 OUTLIER_IQR_MULTIPLIER = 1.5
+
+# ---------------------------------------------------------------------------
+# Load thresholds from JSON (written by feedback_controller after retraining)
+# ---------------------------------------------------------------------------
+def load_thresholds() -> tuple:
+    """
+    Reads ssh_thresholds.json written by feedback_controller.py after retraining.
+    Falls back to safe defaults if the file doesn't exist yet.
+    """
+    defaults = {"MIN_ATTEMPTS_FLOOR": 5, "MAX_AVG_FLOW_DURATION_SEC": 10.0}
+    if SSH_THRESHOLDS_FILE.is_file():
+        try:
+            with open(SSH_THRESHOLDS_FILE, "r") as f:
+                data = json.load(f)
+            min_floor = data.get("MIN_ATTEMPTS_FLOOR", defaults["MIN_ATTEMPTS_FLOOR"])
+            max_duration = data.get("MAX_AVG_FLOW_DURATION_SEC", defaults["MAX_AVG_FLOW_DURATION_SEC"])
+            print(f"[+] Loaded retrained thresholds from {SSH_THRESHOLDS_FILE.name}:")
+            print(f"    MIN_ATTEMPTS_FLOOR       = {min_floor}")
+            print(f"    MAX_AVG_FLOW_DURATION_SEC = {max_duration}")
+            return min_floor, max_duration
+        except Exception as e:
+            print(f"[!] Could not read ssh_thresholds.json ({e}), using defaults.")
+    else:
+        print("[+] No ssh_thresholds.json found. Using default thresholds.")
+    return defaults["MIN_ATTEMPTS_FLOOR"], defaults["MAX_AVG_FLOW_DURATION_SEC"]
+
+# Load thresholds at startup — picks up any retraining done by feedback_controller
+MIN_ATTEMPTS_FLOOR, MAX_AVG_FLOW_DURATION_SEC = load_thresholds()
 
 # ---------------------------------------------------------------------------
 # Load data
@@ -38,16 +65,15 @@ def load_data(csv_file: Path) -> pd.DataFrame:
     return df
 
 # ---------------------------------------------------------------------------
-# Adaptive threshold
+# Threshold — uses the retrained value from ssh_thresholds.json directly
 # ---------------------------------------------------------------------------
 def compute_adaptive_threshold(attempt_counts: pd.Series) -> float:
-    if len(attempt_counts) < 4:
-        return float(MIN_ATTEMPTS_FLOOR)
-    q1 = attempt_counts.quantile(0.25)
-    q3 = attempt_counts.quantile(0.75)
-    iqr = q3 - q1
-    statistical_cutoff = q3 + OUTLIER_IQR_MULTIPLIER * iqr
-    return max(float(MIN_ATTEMPTS_FLOOR), statistical_cutoff)
+    """
+    Use MIN_ATTEMPTS_FLOOR directly from ssh_thresholds.json.
+    The old IQR formula was computing 292 while attackers only had 145 attempts,
+    making detection impossible. The floor from retraining IS the correct threshold.
+    """
+    return float(MIN_ATTEMPTS_FLOOR)
 
 def classify_severity(attempts: int, threshold: float) -> str:
     ratio = attempts / threshold if threshold else attempts

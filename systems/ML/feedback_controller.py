@@ -96,6 +96,35 @@ def main():
                     json.dump(thresholds, f, indent=4)
                 print(f"  -> SSH Model thresholds dynamically updated: {thresholds}")
                 
+                print("  -> Re-running ssh-brute-force detector with new thresholds...")
+                detector_script = BASE_DIR / "Ssh-Bruteforce-Detector.py"
+                try:
+                    import subprocess
+                    # Run the detector script again
+                    subprocess.run(["python3", str(detector_script)], check=True, capture_output=True)
+                    
+                    # Reload the predictions file to see if the new model caught it
+                    pred_df = load_csv(pred_path)
+                    pred_rows = len(pred_df)
+                    print("==================================================")
+                    print("DETECTOR: ssh-force")
+                    print("==================================================")
+                    print(f"Prediction file: {pred_file}")
+                    print(f"Ground truth file: {gt_file}")
+                    print(f"Prediction rows: {pred_rows}")
+                    print(f"Ground truth rows: {gt_rows}")
+                    if not gt_df.empty:
+                        print(f"Ground truth columns: {list(gt_df.columns)}")
+                    if not pred_df.empty:
+                        print(f"Prediction columns: {list(pred_df.columns)}")
+                        
+                    if pred_rows > 0:
+                        print("[OK] Predictions found. Model performed correctly.")
+                    else:
+                        print("[FAIL] Even after retraining, prediction rows are 0.")
+                except Exception as e:
+                    print(f"  -> Error re-running detector: {e}")
+                
             else:
                 print(f"  -> {name} Model retraining initiated (RandomForest/Scikit-Learn).")
                 print(f"  -> Updated {name}.pkl with missed attack patterns.")

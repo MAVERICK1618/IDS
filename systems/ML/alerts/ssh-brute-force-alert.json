@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "timestamp": "2026-09-03T08:35:06.952958+00:00",
+    "alert_type": "SSH_BRUTEFORCE",
+    "message": "ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.102]",
+    "attacker_ip": "10.10.10.1",
+    "host_compromised": "10.10.10.102"
+  },
+  {
+    "timestamp": "2026-09-03T08:35:06.952958+00:00",
+    "alert_type": "SSH_BRUTEFORCE",
+    "message": "ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.103]",
+    "attacker_ip": "10.10.10.1",
+    "host_compromised": "10.10.10.103"
+  },
+  {
+    "timestamp": "2026-09-03T08:35:06.952958+00:00",
+    "alert_type": "SSH_BRUTEFORCE",
+    "message": "ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.101]",
+    "attacker_ip": "10.10.10.1",
+    "host_compromised": "10.10.10.101"
+  },
+  {
+    "timestamp": "2026-09-03T08:35:06.952958+00:00",
+    "alert_type": "SSH_BRUTEFORCE",
+    "message": "ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.105]",
+    "attacker_ip": "10.10.10.1",
+    "host_compromised": "10.10.10.105"
+  },
+  {
+    "timestamp": "2026-09-03T08:35:06.952958+00:00",
+    "alert_type": "SSH_BRUTEFORCE",
+    "message": "ALERT [ssh-bruteforce] attacker_ip: [10.10.10.1] host_compromised: [10.10.10.104]",
+    "attacker_ip": "10.10.10.1",
+    "host_compromised": "10.10.10.104"
+  }
+]

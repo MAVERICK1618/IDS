@@ -5,10 +5,10 @@
 [+] SSH flows: 740
 [+] Isolation Forest — Attack: 332, Normal: 408
 [+] High-confidence attacker IPs: 6
-ALERT [C2] attacker_ip: [10.10.10.102] host_compromised: [10.10.10.1]
 ALERT [C2] attacker_ip: [10.10.10.103] host_compromised: [10.10.10.1]
 ALERT [C2] attacker_ip: [10.10.10.104] host_compromised: [10.10.10.1]
 ALERT [C2] attacker_ip: [10.10.10.105] host_compromised: [10.10.10.1]
+ALERT [C2] attacker_ip: [10.10.10.102] host_compromised: [10.10.10.1]
 ALERT [C2] attacker_ip: [10.10.10.101] host_compromised: [10.10.10.1]
 [+] Saved predictions (C2 only): /home/test/IDS/systems/ML/processed/c2-predictions.csv  (24 rows)
 [+] Saved single alert file: /home/test/IDS/systems/ML/alerts/c2-alert.json  (5 alert(s))

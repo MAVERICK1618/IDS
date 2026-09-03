@@ -45,7 +45,7 @@ def add_cors_headers(response):
 # ─────────────────────────────────────────────────────────────
 # BASE PATHS
 # ─────────────────────────────────────────────────────────────
-IDS_DIR          = Path("/home/test/IDS")
+IDS_DIR          = Path("/home/test/IDS/systems")
 ML_DIR           = IDS_DIR / "ML"
 RED_TEAM_DIR     = IDS_DIR / "Red-Team"
 ORCH_DIR         = IDS_DIR / "orchestration"
@@ -596,5 +596,5 @@ if __name__ == "__main__":
     
     # Development: debug mode enabled
     # Production: use gunicorn or similar app server
-    debug_mode = FLASK_ENV == "development"
+    debug_mode = False
     app.run(host="0.0.0.0", port=8000, debug=debug_mode)
